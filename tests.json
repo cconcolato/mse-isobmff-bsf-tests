@@ -1,0 +1,269 @@
+[
+	{
+		"name":"init_valid.mp4",
+		"description": "Initialization segment for AVC generated with MP4Box",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_no_ftyp.mp4",
+		"description": "Initialization segment hand-edited from init_valid.mp4 to remove the ftyp box.",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, definition of Initialization Segment",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_compat_unkn.mp4",
+		"description": "Initialization segment hand-edited from init_valid.mp4 to replace the brand 'dash' with 'unkn' in the compatible_brands list of the 'ftyp' box.",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 1",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_major_unkn.mp4",
+		"description": "Initialization segment hand-edited from init_valid.mp4 to replace the major brand 'iso6' with 'unkn' in the 'ftyp' box.",
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 1",
+		"valid": false,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_unkn_moov.mp4",
+		"description": "Initialization segment hand-edited from init_valid.mp4 to insert a 'unkn' box between 'ftyp' and 'moov'.",
+		"valid": true,
+		"reason": "Should be valid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, handling of top-level boxes",
+		"passed": {
+			"Chrome": "Invalid top-level ISO BMFF box type unkn",
+			"Firefox": "Invalid Top-Level Box:unkn",
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_no_mvex.mp4",
+		"description": "Initialization segment hand-edited from init_valid.mp4 to replace 'mvex' with 'free'.",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 4",
+		"passed": {
+			"Chrome": "Media Source Extensions require ISO BMFF moov to contain mvex to indicate that Movie Fragments are to be expected.",
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_non_empty_moov.mp4",
+		"description": "Initialization segment from non-dashed content, with full stts, ctts, ....",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 3",
+		"passed": {
+			"Chrome": "Media Source Extensions require ISO BMFF moov to contain mvex to indicate that Movie Fragments are to be expected.",
+			"Firefox": true,
+			"Safari": false,
+		}
+	},
+	{
+		"name":"init_non_empty_moov_w_mvex.mp4",
+		"description": "Initialization segment from non-dashed content, with full stts, ctts, .... but with mvex added manually",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 3",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": false,
+		}
+	},
+	{
+		"name":"init_iso4_default_base_is_moof.mp4",
+		"description": "Initialization segment with brand 'iso4' only which does not support default-base-is-moof",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 2, and Section 4 Media Segment, bullet 4",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_elst_frac.mp4",
+		"description": "Initialization segment with an edit list with a fractional part",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, 3rd paragraph",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_elst_zero_rate.mp4",
+		"description": "Initialization segment with an edit list with a media rate 0",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, 3rd paragraph",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_elst_double_rate.mp4",
+		"description": "Initialization segment with an edit list with a media rate 2",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, 3rd paragraph",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_isom_only.mp4",
+		"description": "Initialization segment with brand 'iso4' only which does not support default-base-is-moof",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 2, and Section 4 Media Segment, bullet 4",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_avc1_only.mp4",
+		"description": "Initialization segment with brand 'avc1' only which does not support default-base-is-moof",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 2, and Section 4 Media Segment, bullet 4",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_iso2_only.mp4",
+		"description": "Initialization segment with brand 'iso2' only which does not support default-base-is-moof",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 2, and Section 4 Media Segment, bullet 4",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_iso3_only.mp4",
+		"description": "Initialization segment with brand 'iso3' only which does not support default-base-is-moof",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 2, and Section 4 Media Segment, bullet 4",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_iso4_only.mp4",
+		"description": "Initialization segment with brand 'iso4' only which does not support default-base-is-moof",
+		"valid": false,
+		"reason": "Should be invalid according to W3C ISOBMFF Byte Stream Format, Section 3 Initialization Segment, bullet 2, and Section 4 Media Segment, bullet 4",
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_iso5_only.mp4",
+		"description": "Initialization segment with brand 'iso5' only",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_iso6_only.mp4",
+		"description": "Initialization segment with brand 'iso6' only",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_iso7_only.mp4",
+		"description": "Initialization segment with brand 'iso7' only",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_iso8_only.mp4",
+		"description": "Initialization segment with brand 'iso8' only",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_iso9_only.mp4",
+		"description": "Initialization segment with brand 'iso9' only",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_isoa_only.mp4",
+		"description": "Initialization segment with brand 'isoa' only",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_isob_only.mp4",
+		"description": "Initialization segment with brand 'isob' only",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_ftyp_isoc_only.mp4",
+		"description": "Initialization segment with brand 'isoc' only",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	}
+]
+
