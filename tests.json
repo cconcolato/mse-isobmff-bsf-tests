@@ -264,6 +264,26 @@
 			"Firefox": true,
 			"Safari": true,
 		}
+	},
+	{
+		"name":"init_free_before_ftyp.mp4",
+		"description": "Initialization segment data with a 'free' box before the 'ftyp'",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
+	},
+	{
+		"name":"init_double_ftyp.mp4",
+		"description": "Initialization segment data with 2 consecutive 'ftyp' boxes",
+		"valid": true,
+		"passed": {
+			"Chrome": true,
+			"Firefox": true,
+			"Safari": true,
+		}
 	}
 ]
 
