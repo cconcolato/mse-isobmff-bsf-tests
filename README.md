@@ -6,4 +6,4 @@ The file tests.json provides a JSON array of test objects with the following pro
 -	"valid": boolean indicating if the test is meant to be valid against current spec
 - "description": short description of the test file 
 - "reason": short explaining of why it would be invalid if valid = false
-- "passed": a JSON object containing 3 properties ("Chrome", "Firefox", "Safari") with the following syntax: true if the test passes, false if the test does not pass or a String corresponding to the error message reported in the inspector
+- "passed": a JSON object containing 3 properties ("Chrome", "Firefox", "Safari") with the following syntax: true if the test passes (i.e. no error if valid; throwing error if invalid), false if the test does not pass (error if valid; no error if invalid) or a String corresponding to the error message reported in the inspector
